@@ -1,0 +1,56 @@
+
+
+
+
+
+
+
+
+<%= form_for(@paciente) do |f| %>
+  <% if @paciente.errors.any? %>
+<div class="form-group" >
+    <div id="error_explanation">
+      <p><%= pluralize(@paciente.errors.count, "error") %> prohibited this paciente from being saved:</p>
+
+      <ul>
+      <% @paciente.errors.full_messages.each do |message| %>
+         <div class="alert alert-danger"><%= message %>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div >
+
+    <%= f.label :nombre %>
+    <%= f.text_field :nombre %>
+
+</div>
+<div >
+    <%= f.label :direccion %>
+    <%= f.text_field :direccion %>
+</div>
+<!--<div>
+    <%= f.label :edad %> <br>
+    <p style="text-align:right;">
+  <b>
+    <%= select(@paciente, :edad, (18..99).to_a)%>
+</b>
+    </p>
+</div >-->
+<div >
+    <%= f.label :edad %> 
+    <%= f.text_field :edad %>
+</div>
+
+    <div>   
+    <%= f.label :email %>
+        
+<%= f.text_field :email%>
+</div>
+</div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
